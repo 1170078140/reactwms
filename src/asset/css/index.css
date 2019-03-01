@@ -1,0 +1,224 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+/* 登陆页 */
+.loginWrap {
+  width: 100%;
+  height: 100%;
+  background: url('../image/new1.jpg') top center no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+}
+.loginWrap .login-form {
+  max-width: 300px;
+}
+.loginWrap .login-form-forgot {
+  float: right;
+}
+.loginWrap .login-form-button {
+  width: 100%;
+}
+.loginForm {
+  position: relative;
+  width: 360px;
+  padding: 30px;
+  height: 400px;
+  margin: 0 auto;
+  top: 0;
+  -webkit-transform: translateY(50%);
+  transform: translateY(50%);
+  overflow: hidden;
+}
+.loginForm img {
+  margin: 0 auto;
+  display: block;
+  width: 150px;
+  margin-bottom: 20px;
+}
+.loginForm .ant-input-affix-wrapper {
+  height: 50px;
+  font-size: 16px;
+}
+.loginForm .ant-input {
+  border-radius: 100px !important;
+  background: transparent !important;
+  color: #fff;
+  font-size: 16px;
+}
+.loginForm .ant-form-explain-holder {
+  line-height: 10px;
+}
+.loginForm .ant-input-affix-wrapper .ant-input:not(:first-child) {
+  padding-left: 38px;
+}
+.loginForm .login_bottom {
+  width: 100%;
+  height: 50px;
+  padding: 10px 0;
+  margin-top: 16px;
+  color: #fff;
+  font-size: 18px;
+  background: #D67b00;
+  border-radius: 100px;
+  border-color: #D67b00;
+}
+.loginForm .login_bottom:hover,
+.loginForm .login_bottom:active,
+.loginForm .login_bottom:focus {
+  background: #D67b00;
+  border-color: #D67b00;
+}
+.loginForm .ant-input:focus {
+  border-color: #fff !important;
+}
+.loginForm .ant-input:hover {
+  border-color: #fff !important;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0.6) inset !important;
+  -webkit-text-fill-color: #fff !important;
+  border-color: #fff;
+}
+::-webkit-scrollbar {
+  width: 9px !important;
+  height: 9px !important;
+  padding: 10px !important;
+  scrollbar-face-color: #FB4446;
+  scrollbar-highlight-color: #fff;
+  scrollbar-shadow-color: #eeeeee;
+  scrollbar-3dlight-color: #eeeeee;
+  scrollbar-arrow-color: #000;
+  scrollbar-track-color: #fff;
+  scrollbar-darkshadow-color: #fff;
+}
+::-webkit-scrollbar-track-piece {
+  background: #fff !important;
+}
+::-webkit-scrollbar-thumb {
+  width: 9px !important;
+  background: rgba(163, 186, 237, 0.5) !important;
+  border-radius: 20px !important;
+}
+::-webkit-resizer {
+  display: none;
+}
+.ant-layout-header {
+  line-height: 1 !important;
+}
+.navbarWrap {
+  width: 100%;
+  height: 60px;
+  background-color: #393b6a;
+  opacity: 1;
+  position: fixed;
+  z-index: 99;
+  color: #fff;
+}
+.navbarWrap .logo {
+  font-size: 40px;
+  line-height: 60px;
+  position: absolute;
+  left: 20px;
+}
+.navbarWrap .navbar {
+  color: #fff;
+  height: 60px;
+  line-height: 58px;
+  position: absolute;
+  right: 400px;
+}
+.navbarWrap .navbar li {
+  float: left;
+  list-style: none;
+  border-bottom: 2px solid #393b6a;
+  padding: 0 15px;
+  position: relative;
+}
+.navbarWrap .navbar li:hover {
+  border-bottom-color: #fff;
+  cursor: pointer;
+}
+.navbarWrap .navbar .line {
+  position: absolute;
+  right: 0;
+}
+.navbarWrap .factoryCode {
+  position: absolute;
+  right: 261px;
+  line-height: 60px;
+  cursor: pointer;
+}
+.navbarWrap .factoryCode span {
+  margin-left: 5px;
+  width: 20px;
+  overflow: hidden;
+}
+.navbarWrap .factoryWrap {
+  position: absolute;
+  right: 107px;
+  top: 20px;
+}
+.navbarWrap .factoryWrap .ant-select {
+  height: 18px;
+  line-height: 18px;
+  vertical-align: -5px;
+  margin-left: 5px;
+}
+.navbarWrap .factoryWrap .ant-select-selection-selected-value {
+  line-height: 18px;
+}
+.navbarWrap .factoryWrap .ant-select-selection--single {
+  width: 112px;
+  height: 18px;
+  line-height: 18px;
+  border-radius: 5px;
+  font-size: 13px;
+  background: #67A5E4;
+  border: none;
+  color: #fff;
+}
+.navbarWrap .factoryWrap .ant-select-arrow {
+  color: #fff;
+  font-size: 6px !important;
+}
+.navbarWrap .userWrap {
+  position: absolute;
+  right: 20px;
+  top: 18px;
+  font-weight: bolder;
+  cursor: pointer;
+}
+.navbarWrap .userWrap span {
+  display: inline-block;
+  width: 43px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 13px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  vertical-align: -2px;
+  margin-left: 5px;
+}
+.ant-layout-sider-children {
+  overflow: auto;
+}
+.ant-layout-sider-collapsed {
+  min-width: 89px !important;
+}
+.ant-form-explain-holder {
+  line-height: 0.5 !important;
+}
+#index_bgi {
+  width: 100%;
+  height: 100%;
+  background-image: url("../image/index_2.png");
+  background-size: 100% 100%;
+}
