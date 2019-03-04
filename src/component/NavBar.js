@@ -7,7 +7,6 @@ class NavBar extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-      hahha:'222',
       current: 'mail',
       token:'',
       userName : '',
@@ -25,6 +24,24 @@ class NavBar extends Component {
     });
   }
   componentWillMount(){
+    // 获取菜单
+    let menuListAll = storage.get('menuList');
+    // console.log(menuListAll); 
+    let menuList = [];
+    let arr = ['Receive MGT','Authority','Basic Data','Customer Data','Factory Data','IN-WH MGT','Print Center','Query Center','Interface','Pick & Line feeding','Data initialization'];
+    if(menuListAll){
+      menuListAll.map((value,key)=>{
+        if(arr.indexOf(value.name) !== -1 && value.status === 1){
+          // console.log(value)
+          menuList.push(value);
+        }
+      })
+    }
+    // console.log(menuList); 
+    this.setState({
+      menuList:menuList
+    })
+    
     let token = storage.get('token');
     let userName = storage.get('userName');
     let factoryCode = storage.get('factoryCode');
@@ -33,54 +50,61 @@ class NavBar extends Component {
       userName,
       factoryCode,
     })
-
-    // 获取菜单
-    let menuListAll = storage.get('permissions');
-    let menuList = [];
-    let arr = ['pick-up','pickPull','cymm','inventory-list','library-management','Warehouse-management','print','reservior'];
-    if(menuListAll){
-      menuListAll.map((value,key)=>{
-        if(arr.indexOf(value.code) !== -1 && value.status === 1){
-          menuList.push(value);
-        }
-      })
-      this.setState({
-        menuList:menuList
-      })
-    } 
+  }
+  componentDidMount(){
+  }
+  componentWillUpdate(){
   }
   handleChange= ()=>{
 
   }
+  changeAside = (list)=>{
+    if(this.state.menuList.length>0){
+      this.state.menuList.map((item,key)=>{
+        if((list.indexOf(item.name) !==-1) && item.status === 1) {
+          var itemCode = document.getElementById(item.code);
+          if(itemCode){
+            document.getElementById(item.code).style.display = "block";
+          }
+        } else {
+          var itemCode2 = document.getElementById(item.code);
+          if(itemCode2) {
+            document.getElementById(item.code).style.display = "none";
+          }
+        }
+      })
+    }
+  }
   changeMenu = (value)=>{
+    let obj = document.getElementsByClassName('navbar')[0].children;
+    for(let i =0;i<obj.length;i++){
+      obj[i].classList.remove('ac')
+    }
     switch (value) {
       case 1:
-        
-
+        let list1 = ['Receive MGT','IN-WH MGT','Print Center','Query Center','Pick & Line feeding'];
+        this.changeAside(list1);
+        obj[0].classList.add('ac');
         break;
-      case '2':
-        if(this.state.menuList.length>0){
-          this.state.menuList.map((value,key)=>{
-            if(value.name === 'Basic Data'){
-              this.setState({
-                menuList:value
-              })
-            }
-          })
-        }
-        console.log(this.state.menuList);
-
+      case 2:
+        let list2 = ['Basic Data'];
+        this.changeAside(list2);
+        obj[1].classList.add('ac');
         break;
       case 3:
-        
+        let list3 = ['Interface'];
+        this.changeAside(list3);
+        obj[2].classList.add('ac');
         break;
       case 4:
-        
+        let list4 = ['Authority'];
+        this.changeAside(list4);
+        obj[3].classList.add('ac');
         break;
       case 5:
-        
+        let list5 = ['Data initialization','Factory Data','Customer Data'];
+        this.changeAside(list5);
         break;
-    
       default:
         break;
     }
@@ -235,12 +259,12 @@ class NavBar extends Component {
       <div className="navbarWrap">
         <div className="logo">LOGO</div>
         <ul className="navbar">
-          <li onClick={this.changeMenu.bind(this,"2")}>Business operation<span className="line">|</span></li>
-          <li onClick={this.changeMenu.bind(this,"2")}>Basic data<span className="line">|</span></li>
-          <li onClick={this.changeMenu.bind(this,"2")}>Interface query<span className="line">|</span></li>
-          <li onClick={this.changeMenu.bind(this,"2")}>System management</li>
+          <li className="ac" onClick={this.changeMenu.bind(this,1)}>Business operation<span className="line">|</span></li>
+          <li onClick={this.changeMenu.bind(this,2)}>Basic data<span className="line">|</span></li>
+          <li onClick={this.changeMenu.bind(this,3)}>Interface query<span className="line">|</span></li>
+          <li onClick={this.changeMenu.bind(this,4)}>System management</li>
         </ul>
-        <div className="factoryCode" onClick={this.changeMenu.bind(this,"2")}>
+        <div className="factoryCode" onClick={this.changeMenu.bind(this,5)}>
           <Icon type="shop" theme="filled" />
           <span>{this.state.factoryCode}</span>
         </div>

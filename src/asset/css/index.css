@@ -140,10 +140,13 @@ input:-webkit-autofill {
   border-bottom: 2px solid #393b6a;
   padding: 0 15px;
   position: relative;
+  cursor: pointer;
 }
 .navbarWrap .navbar li:hover {
   border-bottom-color: #fff;
-  cursor: pointer;
+}
+.navbarWrap .navbar .ac {
+  border-bottom-color: #fff;
 }
 .navbarWrap .navbar .line {
   position: absolute;
@@ -221,4 +224,9 @@ input:-webkit-autofill {
   height: 100%;
   background-image: url("../image/index_2.png");
   background-size: 100% 100%;
+}
+.noMatchPage {
+  font-size: 200px;
+  text-align: center;
+  padding-top: 150px;
 }

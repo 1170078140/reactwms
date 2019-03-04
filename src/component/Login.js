@@ -39,6 +39,17 @@ class Login extends Component {
               let res = response.data.repData;
               storage.set('token',res.token);
               storage.set('permissions',res.permissions);
+              let menuList = [];
+              let arr = ['Receive MGT','Authority','Basic Data','Customer Data','Factory Data','IN-WH MGT','Print Center','Query Center','Interface','Pick & Line feeding','Data initialization'];
+              if(res.permissions){
+                res.permissions.map((value,key)=>{
+                  if(arr.indexOf(value.name) !== -1 && value.status === 1){
+                    menuList.push(value);
+                  }
+                })
+              }
+              storage.set('menuList',menuList);
+
               storage.set('userName',res.name);
               storage.set('factoryCode',res.code);
               window.location.href = '/index';
